@@ -1,0 +1,612 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(40, 36, 43);
+    overflow-x: hidden;
+}
+
+.logo-bar {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(73, 67, 77);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    font-weight: 700;
+}
+.logo-bar-back {
+    height: 50%;
+    margin-left: 2%;
+}
+.logo-bar-back:hover {
+    cursor: pointer;
+}
+.logo-bar-edit {
+    height: 30%;
+    margin-right: 2%;
+}
+.logo-bar-edit:hover {
+    cursor: pointer;
+}
+.folder-container {
+    margin: 5% 5% 0 5%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.folder {
+    user-select: none;
+    margin: 1.5%;
+    padding: 0.5%;
+    background-color: rgb(66, 59, 78);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 10%;
+    height: 28%;
+    border-radius: 25px;
+    transition: 0.25s;
+}
+
+.folder-cover {
+    width: 100%;
+    border-radius: 15%;
+    pointer-events: none;
+}
+
+.folder-name {
+    background-color: rgba(0, 0, 0, 0.25); 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90%;
+    padding: 5%;
+    margin: 5% 0 0 0;
+    border-radius: 15px;
+    display: inline-block;
+    user-select: none;
+}
+
+.folder:hover {
+    cursor: pointer;
+    box-shadow: 0 0 50px rgb(195, 0, 255);
+}
+
+.top-bar {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(73, 67, 77);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 2;
+    font-size: 30px;
+    font-weight: 700;
+}
+.top-bar-back {
+    height: 50%;
+    margin-left: 2%;
+}
+.top-bar-back:hover {
+    cursor: pointer;
+}
+.top-bar-edit {
+    height: 30%;
+    margin-right: 2%;
+}
+.top-bar-edit:hover {
+    cursor: pointer;
+}
+.folder-lefty {
+    background-color: rgb(86, 80, 89);
+    width: 30%;
+    height: 90vh;
+    padding-top: 10vh;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    display: block;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+.folder-lefty-img {
+    width: 90%;
+    margin: 5%;
+    padding: 0;
+    border-radius: 15%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-image: url('../assets/NotPlaying.jpeg');
+}
+.folder-lefty-album-name {
+    margin: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    font-size: 2vw;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.folder-lefty-button {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    height: 8%;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(41, 37, 43);
+    transition: 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+}
+.folder-lefty-button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 20px rgb(195, 0, 255);
+}
+.folder-lefty-butimg {
+    height: 60%;
+    margin-right: 3%;
+}
+.music-row-outer-container {
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    width: 70%;
+    height: 90%;
+}
+.music-row-container {
+    margin: 10%;
+    height: 74.5%;
+    width: 80%;
+    border: 1px solid rgb(61, 61, 61);
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+.music-row-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    padding: 1%;
+}
+.music-row-file:hover {
+    cursor: pointer;
+}
+.odd {
+    background-color: rgb(41, 37, 43);
+}
+.even {
+    background-color: rgb(67, 60, 70);
+}
+.music-row-file-texts {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.music-row-file-number {
+    width: 1vw;
+    margin-right: 0.8vw;
+}
+
+
+
+.progress23 {
+    width: 900px;
+    height: 30px;
+    margin: 150px;
+    background-color: aquamarine;
+}
+.time {
+    width: 100px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: brown;
+}
+.player {
+    position: absolute;
+    top: 10vw;
+    left: 68.5vw;
+    width: 30vw;
+    height: 80vh;
+    background-color: rgb(56, 51, 58);
+    margin: 0;
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+.player-row {
+    /* border: 1px solid black; */
+    border-radius: 1vw;
+}
+.top {
+    height: 15%;
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 2.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mid {
+    height: 60%;
+    width: 90%;
+    margin: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    background-color: transparent;
+    border: 1px solid rgb(87, 87, 87);
+    overflow-y: scroll;
+}
+.bot {
+    height: 25%;
+    width: 90%;
+    margin: 5%;
+    margin-top: 2.5%;
+    background-color: transparent;
+}
+.player-row-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    padding: 2%;
+}
+.player-row-file-name {
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+}
+.player-row-file:hover {
+    cursor: pointer;
+}
+.odd {
+    background-color: rgb(41, 37, 43);
+}
+.even {
+    background-color: rgb(67, 60, 70);
+}
+.isplaying {
+    box-shadow: inset 0 0 5px rgb(221, 0, 255);
+}
+.player-row-progress {
+    /* border: 1px solid black; */
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.player-row-controls {
+    /* border: 1px solid black; */
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.player-row-but {
+    width: 10%;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+    padding: 2%;
+}
+.repeat-shadow {
+    box-shadow: inset 0px 0px 5px rgb(221, 0, 255);
+}
+.player-row-but:hover {
+    cursor: pointer;
+}
+.player-row-progress-bar {
+    background-color: gray;
+    width: 75%;
+    height: 25%;
+    border-radius: 50px;
+}
+.player-row-progress-bar:hover {
+    cursor: pointer;
+}
+.player-row-progress-innerbar {
+    border-radius: 50px;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 0%;
+    background-color: rgb(221, 0, 255);
+    overflow: hidden;
+    transition: 0.1s;
+}
+.player-row-uppercontrols {
+    /* border: 1px solid black; */
+    width: 30%;
+    height: 100%;;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.player-row-upc-but {
+    height: 30%;
+    /* border: 1px solid black; */
+}
+.player-row-upc-but:hover {
+    cursor: pointer;
+}
+.player-row-trackinfo {
+    /* border: 1px solid black; */
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.player-row-cover {
+    width: 40%;
+    margin-right: 5%;
+    border-radius: 10%;
+}
+.player-row-name {
+    font-size: 100%;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+}
+
+.player-minimized {
+    background-color: rgb(56, 51, 58);
+    position: absolute;
+    top: 90%;
+    left: 94%;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.player-minimized:hover {
+    cursor: pointer;
+}
+.player-minimized-img {
+    padding-top: 10%;
+    width: 50%;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    width: 40vw; 
+    height: 65vh; 
+    background-color: rgb(112, 112, 112);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 150px rgb(195, 0, 255);
+    border-radius: 5vw;
+    font-size: 1.8vw;
+}
+.login-card-logo {
+    font-size: 3vw;
+}
+.login-card-login {
+    width: 80%;
+}
+.login-card-password {
+    width: 80%;
+    margin-top: 10%;
+}
+.login-card-input {
+    border: none;
+    background-color: rgba(40, 36, 43, 0.5);
+    width: 90%;
+    height: 50%;
+    border-radius: 10vw;
+    padding: 5px;
+    font-size: 2vw;
+}
+.login-card-text {
+    margin: 0 0 2% 0;
+}
+.login-button {
+    margin-top: 10%;
+    border: none;
+    background-color: rgba(40, 36, 43, 0.8);
+    width: 20%;
+    height: 10%;
+    font-size: 2vw;
+    border-radius: 2vw;
+    transition: 0.25s;
+}
+.login-button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 25px rgb(195, 0, 255);
+}
+
+.create-album-view-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+.create-album-view-innercontainer {
+    width: 40vw; 
+    height: 65vh; 
+    background-color: rgb(112, 112, 112);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5vw;
+    padding-top: 1%;
+    position: absolute;
+    z-index: 6;
+}
+.create-album-view-name, .create-album-view-link {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    font-size: 2vw;
+}
+
+.create-album-view-name > p, .create-album-view-link > p{
+    font-size: 2vw;
+}
+
+.create-album-view-input {
+    border: none;
+    background-color: rgba(40, 36, 43, 0.5);
+    width: 90%;
+    height: 50%;
+    border-radius: 10vw;
+    padding: 5px;
+    font-size: 2vw;
+}
+.create-album-view-buttons {
+    width: 100%;
+    height: 20%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.create-album-view-buttons > button {
+    border: none;
+    background-color: rgba(40, 36, 43, 0.8);
+    width: 40%;
+    height: 50%;
+    font-size: 2vw;
+    border-radius: 2vw;
+    transition: 0.25s;   
+}
+.create-album-view-accept:hover {
+    cursor: pointer;
+}
+.create-album-view-cancel:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.create-track-view-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+.create-track-view-innercontainer {
+    width: 40vw; 
+    height: 65vh; 
+    background-color: rgb(112, 112, 112);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5vw;
+    padding-top: 1%;
+}
+.create-track-view-name, .create-track-view-link {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    font-size: 2vw;
+}
+
+.create-track-view-name > p, .create-track-view-link > p{
+    font-size: 2vw;
+}
+
+.create-track-view-input {
+    border: none;
+    background-color: rgba(40, 36, 43, 0.5);
+    width: 90%;
+    height: 50%;
+    border-radius: 10vw;
+    padding: 5px;
+    font-size: 2vw;
+}
+.create-track-view-buttons {
+    width: 100%;
+    height: 20%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.create-track-view-buttons > button {
+    border: none;
+    background-color: rgba(40, 36, 43, 0.8);
+    width: 40%;
+    height: 50%;
+    font-size: 2vw;
+    border-radius: 2vw;
+    transition: 0.25s;   
+}
+.create-track-view-accept:hover {
+    cursor: pointer;
+}
+.create-track-view-cancel:hover {
+    cursor: pointer;
+}
+
+
+.hidden {
+    display: none;
+}
+.inshadow {
+    box-shadow: inset 0 0 15px rgb(195, 0, 255);
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourMusic</title>
+    <script src="js/TrackClass.js" defer></script>
+    <script src="js/PlayerClass.js" defer></script>
+    <script src="js/API.js" defer></script>
+    <script src="js/CreateClassView.js" defer></script>
+    <script src="js/FolderViewClass.js" defer></script>
+    <script src="js/StorageViewClass.js" defer></script>
+    <script src="js/AuthorizationViewClass.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* * {
+            border: 1px solid black;
+        } */
+        
+    </style>
+</head>
+<body>
+
+
+    <!-- Авторизация -->
+    <div class="login-container">
+        <div class="login-card">
+            <p class="login-card-logo">#YourMusic</p>
+            <div class="login-card-login">
+                <p class="login-card-text">Логин: </p>
+                <input class="login-card-input" id="login"></input>
+            </div>
+            <div class="login-card-password">
+                <p class="login-card-text">Пароль: </p>
+                <input class="login-card-input" id="password"></input>
+            </div>
+            <button class="login-button">Войти</button>
+        </div>
+    </div>
+    
+
+    <!-- Верхняя панель для вида хранилища -->
+    <div class="logo-bar hidden">
+        <img class="logo-bar-back" src="assets/BackArrow.png"/>
+        <p>#YourMusic</p>
+        <img class="logo-bar-edit" src="assets/Pencil.png"/>
+    </div>
+
+
+    <!-- Контейнер для папок -->
+    <div class="folder-container hidden">
+        <!-- <div class="folder">
+            <img class="folder-cover" src="https://drive.google.com/uc?export=view&id=1o1iJ5WXtLjDpmuDKtVhlHwRQ9GulB5an"/>
+            <p class="folder-name">Origins</p>
+        </div> -->
+    </div>
+
+
+    <!-- Верхняя панель для вида внутри папки -->
+    <div class="top-bar hidden">
+        <img class="top-bar-back" src="assets/BackArrow.png"/>
+        <p>#YourMusic</p>
+        <img class="top-bar-edit" src="assets/Pencil.png"/>
+    </div>
+
+
+    <!-- Боковая панель -->
+    <div class="folder-lefty hidden">
+        <img class="folder-lefty-img" src="assets/OriginsCover.jpg"/>
+        <p class="folder-lefty-album-name">Origins</p>
+        <button class="folder-lefty-button" id="play">
+            <img class="folder-lefty-butimg" src="assets/Play.png">
+            Воспроизвести
+        </button>
+        <button class="folder-lefty-button" id="shuffle">
+            <img class="folder-lefty-butimg" src="assets/Shuffle.png">
+            Перемешать
+        </button>
+    </div>
+
+
+    <!-- Список треков в альбоме -->
+    <div class="music-row-outer-container hidden">
+        <div class="music-row-container">
+            
+            <!-- <div class="music-row-file odd">
+                <div class="music-row-file-texts">
+                    <div class="music-row-file-number">1</div>
+                    <div class="music-row-file-name">Natural</div>
+                </div>
+                <div class="music-row-file-duration">3:09</div>
+            </div>
+
+            <div class="music-row-file even">
+                <div class="music-row-file-texts">
+                    <div class="music-row-file-number">2</div>
+                    <div class="music-row-file-name">Boomerang</div>
+                </div>
+                <div class="music-row-file-duration">3:08</div>
+            </div> -->
+
+        </div>
+    </div>
+
+
+
+    <!-- Плеер свернутый -->
+    <div class="player-minimized hidden">
+        <img class="player-minimized-img" src="assets/Bars.png"/>
+    </div>
+
+
+    <!-- Плеер развернутый -->
+    <div class="player hidden">
+        <div class="player-row top">
+            <div class="player-row-trackinfo">
+                <img class="player-row-cover" src="assets/NotPlaying.jpeg"/>
+                <p class="player-row-name">Not Playing</p>
+            </div>
+            <div class="player-row-uppercontrols">
+                <img class="player-row-upc-clear player-row-upc-but" src="assets/Brush.png"/>
+                <img class="player-row-upc-hide player-row-upc-but" src="assets/ArrowDown.png"/>
+            </div>
+        </div>
+        <div class="player-row mid">
+
+            <!-- <div class="player-row-file odd isplaying">
+                <div class="player-row-file-name">Natural</div>
+                <div class="player-row-file-duration"></div>
+            </div>
+            <div class="player-row-file even">
+                <div class="player-row-file-name">Natural</div>
+                <div class="player-row-file-duration"></div>
+            </div>
+            <div class="player-row-file odd">
+                <div class="player-row-file-name">Natural</div>
+                <div class="player-row-file-duration"></div>
+            </div>
+            <div class="player-row-file even">
+                <div class="player-row-file-name">Natural</div>
+                <div class="player-row-file-duration"></div>
+            </div> -->
+
+        </div>
+        <div class="player-row bot">
+            <div class="player-row-progress">
+                <div class="player-row-progress-curtime">0:00</div>
+                <div class="player-row-progress-bar">
+                    <div class="player-row-progress-innerbar"></div>
+                </div>
+                <div class="player-row-progress-duration">0:00</div>
+            </div>
+            <div class="player-row-controls">
+                <img class="player-row-button-repeat player-row-but" src="assets/Repeat.png"></img>
+                <img class="player-row-button-backward player-row-but" src="assets/Bacward.png"></img>
+                <img class="player-row-button-play-pause player-row-but" src="assets/Play.png"></img>
+                <img class="player-row-button-forward player-row-but" src="assets/Forward.png"></img>
+                <img class="player-row-button-shuffle player-row-but" src="assets/Shuffle.png"></img>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="create-album-view-container hidden">
+        <div class="create-album-view-innercontainer">
+            Изменить
+            <div class="create-album-view-name">
+                <p>Название альбома: </p>
+                <input class="create-album-view-input" id="alb-name"></input>
+            </div>
+            <div class="create-album-view-link">
+                <p>Google Drive ссылка на абложку альбома: </p>
+                <input class="create-album-view-input" id="alb-link"></input>
+            </div>
+            <div class="create-album-view-buttons">
+                <button class="create-album-view-accept">Сохранить</button>
+                <button class="create-album-view-cancel">Отменить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="create-track-view-container hidden">
+        <div class="create-track-view-innercontainer">
+            Изменить
+            <div class="create-track-view-name">
+                <p>Название трека: </p>
+                <input class="create-track-view-input" id="tr-name"></input>
+            </div>
+            <div class="create-track-view-link">
+                <p>Google Drive ссылка на трек: </p>
+                <input class="create-track-view-input" id="tr-link"></input>
+            </div>
+            <div class="create-track-view-buttons">
+                <button class="create-track-view-accept">Сохранить</button>
+                <button class="create-track-view-cancel">Отменить</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
